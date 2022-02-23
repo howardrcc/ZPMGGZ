@@ -3,6 +3,9 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.dbmdl
+*.cache
+*.jfm
 
 # Build results
 **/[Bb]in
@@ -18,4 +21,7 @@
 *.settings
 bin
 obj
-**/*.scmp
+**/*.scmp 
+Import Schema Logs
+/*/Security
+workspace.code-workspace

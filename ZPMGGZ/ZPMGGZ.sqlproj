@@ -117,7 +117,6 @@
     <Build Include="dbo\Stored Procedures\vul_Appointments.sql" />
     <Build Include="dbo\Stored Procedures\vul_AppointmentClients.sql" />
     <Build Include="dbo\Stored Procedures\vul_Admissions.sql" />
-    <Build Include="dbo\Stored Procedures\sync_db.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ZPMGGZ.scmp" />
