@@ -1,0 +1,31 @@
+﻿CREATE TABLE [dbo].[Appointments] (
+    [Id]                           INT              NOT NULL,
+    [ClientgroupId]                INT              NULL,
+    [IsProcessed]                  BIT              NOT NULL,
+    [OrganizationRegistrationType] INT              NULL,
+    [AppointmentType]              TINYINT          NULL,
+    [AppointmentConfirmationId]    INT              NULL,
+    [ClientReminderEmail]          BIT              NOT NULL,
+    [ClientReminderSms]            BIT              NOT NULL,
+    [VideoCallRoomId]              UNIQUEIDENTIFIER NULL,
+    [VideoCallRoomPin]             INT              NULL,
+    [Subject]                      VARCHAR (100)    NOT NULL,
+    [StartDateTime]                DATETIME2 (7)    NOT NULL,
+    [EndDateTime]                  DATETIME2 (7)    NOT NULL,
+    [Location]                     VARCHAR (50)     NULL,
+    [Description]                  VARCHAR (MAX)    NULL,
+    [RecurrenceID]                 INT              NULL,
+    [RecurrenceRule]               VARCHAR (100)    NULL,
+    [IsAllDay]                     BIT              NOT NULL,
+    [CreatedBy]                    VARCHAR (50)     NULL,
+    [Created]                      DATETIME2 (7)    NOT NULL,
+    [LastModifiedBy]               VARCHAR (50)     NULL,
+    [LastModified]                 DATETIME2 (7)    NULL,
+    [Removed]                      BIT              NOT NULL,
+    [OrganizationId]               INT              NOT NULL,
+    [AppointmentCodeId]            INT              NULL,
+    [AppointmentReportId]          INT              NULL,
+    [AppointmentNumber]            VARCHAR (25)     NULL
+)
+WITH (DATA_COMPRESSION = PAGE);
+

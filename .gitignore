@@ -1,0 +1,21 @@
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+**/[Bb]in
+**/[Oo]bj
+
+# Business Intelligence projects
+*.rdl.data
+*.bim.layout
+*.bim_*.settings
+**/.vs
+.vs
+*.layout
+*.settings
+bin
+obj
+**/*.scmp

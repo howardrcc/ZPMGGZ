@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ZPMGGZ</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{f744de1c-ea5e-48ec-9202-5161772b1a75}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>ZPMGGZ</RootNamespace>
+    <AssemblyName>ZPMGGZ</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Rooms.sql" />
+    <Build Include="dbo\Tables\OrganizationUsers.sql" />
+    <Build Include="dbo\Tables\OrganizationUserProfessions.sql" />
+    <Build Include="dbo\Tables\HealthcareTrajectoryOrganizationUsers.sql" />
+    <Build Include="dbo\Tables\HealthcareTrajectoryDiagnoses.sql" />
+    <Build Include="dbo\Tables\HealthcareTrajectories.sql" />
+    <Build Include="dbo\Tables\HealthcareConsults.sql" />
+    <Build Include="dbo\Tables\Departments.sql" />
+    <Build Include="dbo\Tables\CodelistSurchargeInPatientStays.sql" />
+    <Build Include="dbo\Tables\CodelistSurchargeConsults.sql" />
+    <Build Include="dbo\Tables\CodelistSettings.sql" />
+    <Build Include="dbo\Tables\CodelistReferrerTypes.sql" />
+    <Build Include="dbo\Tables\CodelistProfessions.sql" />
+    <Build Include="dbo\Tables\CodelistProfessionCategories.sql" />
+    <Build Include="dbo\Tables\CodelistOtherActivities.sql" />
+    <Build Include="dbo\Tables\CodelistInPatientStays.sql" />
+    <Build Include="dbo\Tables\CodelistGroupConsults.sql" />
+    <Build Include="dbo\Tables\CodelistDsm5s.sql" />
+    <Build Include="dbo\Tables\CodelistConsults.sql" />
+    <Build Include="dbo\Tables\CodelistCareLabels.sql" />
+    <Build Include="dbo\Tables\CodelistCareLabelHealthcareTrajectories.sql" />
+    <Build Include="dbo\Tables\CodelistCareLabelHealthcareConsults.sql" />
+    <Build Include="dbo\Tables\CodelistActivities.sql" />
+    <Build Include="dbo\Tables\Clients.sql" />
+    <Build Include="dbo\Tables\Beds.sql" />
+    <Build Include="dbo\Tables\Appointments.sql" />
+    <Build Include="dbo\Tables\AppointmentClients.sql" />
+    <Build Include="dbo\Tables\Admissions.sql" />
+    <Build Include="dbo\Stored Procedures\vul_Rooms.sql" />
+    <Build Include="dbo\Stored Procedures\vul_OrganizationUsers.sql" />
+    <Build Include="dbo\Stored Procedures\vul_OrganizationUserProfessions.sql" />
+    <Build Include="dbo\Stored Procedures\vul_HealthcareTrajectoryOrganizationUsers.sql" />
+    <Build Include="dbo\Stored Procedures\vul_HealthcareTrajectoryDiagnoses.sql" />
+    <Build Include="dbo\Stored Procedures\vul_HealthcareTrajectories.sql" />
+    <Build Include="dbo\Stored Procedures\vul_HealthcareConsults.sql" />
+    <Build Include="dbo\Stored Procedures\vul_Departments.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistSurchargeInPatientStays.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistSurchargeConsults.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistSettings.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistReferrerTypes.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistProfessions.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistProfessionCategories.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistOtherActivities.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistInPatientStays.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistGroupConsults.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistDsm5s.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistConsults.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistCareLabels.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistCareLabelHealthcareTrajectories.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistCareLabelHealthcareConsults.sql" />
+    <Build Include="dbo\Stored Procedures\vul_CodelistActivities.sql" />
+    <Build Include="dbo\Stored Procedures\vul_Clients.sql" />
+    <Build Include="dbo\Stored Procedures\vul_Beds.sql" />
+    <Build Include="dbo\Stored Procedures\vul_Appointments.sql" />
+    <Build Include="dbo\Stored Procedures\vul_AppointmentClients.sql" />
+    <Build Include="dbo\Stored Procedures\vul_Admissions.sql" />
+    <Build Include="dbo\Stored Procedures\sync_db.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ZPMGGZ.scmp" />
+  </ItemGroup>
+</Project>

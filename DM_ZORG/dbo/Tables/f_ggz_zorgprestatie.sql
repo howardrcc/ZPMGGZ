@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[f_ggz_zorgprestatie] (
+    [ggz_zorgprestatie_id]         INT             NOT NULL,
+    [ggz_traject_id]               INT             NOT NULL,
+    [patient_id]                   INT             NOT NULL,
+    [ggz_zorgprestatie_dim_id]     INT             NOT NULL,
+    [zorgverlener_id]              INT             NOT NULL,
+    [datum_id]                     INT             NOT NULL,
+    [tijd_id]                      INT             NOT NULL,
+    [duur_minuten]                 INT             NULL,
+    [duur_dagen]                   INT             NULL,
+    [aantal]                       INT             NULL,
+    [omzet]                        DECIMAL (12, 2) NULL,
+    [ggz_opname_id]                INT             NULL,
+    [opname_id_epic]               INT             NULL,
+    [afspraak_id_epic]             INT             NULL,
+    [tarief]                       INT             NULL,
+    [normtijd_indirect]            NUMERIC (7, 3)  NOT NULL,
+    [doorberekende_directe_tijd]   NUMERIC (7, 3)  NULL,
+    [directe_tijd_groepsconsulten] NUMERIC (7, 3)  NULL,
+    [verzekeraar_id]               NUMERIC (18)    NULL,
+    [creatie_datum]                DATETIME        NOT NULL,
+    [mutatie_datum]                DATETIME        NOT NULL,
+    CONSTRAINT [PK_f_ggz_zorgprestatie] PRIMARY KEY CLUSTERED ([ggz_zorgprestatie_id] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
+);
+

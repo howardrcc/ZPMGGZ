@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[ggz_zorgprestatie_dim] (
+    [ggz_zorgprestatie_dim_id]       INT           IDENTITY (1, 1) NOT NULL,
+    [ggz_zorgprestatie_dim_ok]       INT           NOT NULL,
+    [zorgprestatie_code]             VARCHAR (10)  NOT NULL,
+    [zorgprestatie_oms]              VARCHAR (200) NOT NULL,
+    [zorgprestatiegroep_code]        VARCHAR (10)  NOT NULL,
+    [zorgprestatiegroep_oms]         VARCHAR (64)  NOT NULL,
+    [consult_type]                   VARCHAR (64)  NOT NULL,
+    [startdatum]                     DATETIME      NULL,
+    [einddatum]                      DATETIME      NOT NULL,
+    [tarief]                         INT           NOT NULL,
+    [tarief_niveau]                  SMALLINT      NULL,
+    [geldstroom]                     SMALLINT      NOT NULL,
+    [setting_code]                   VARCHAR (10)  NULL,
+    [setting_oms]                    VARCHAR (255) NULL,
+    [beroepscategorie_code]          VARCHAR (10)  NULL,
+    [duur_verrichting_minuten_vanaf] INT           NULL,
+    [groeps_grootte]                 INT           NULL,
+    [verblijf_niveau_zorg]           VARCHAR (40)  NULL,
+    [verblijf_niveau_beveiliging]    SMALLINT      NULL,
+    [creatie_datum]                  DATETIME      NOT NULL,
+    [mutatie_datum]                  DATETIME      NOT NULL,
+    [verwijderd_datum]               DATETIME      NULL,
+    CONSTRAINT [PK_ggz_zorgprestatie_dim_id] PRIMARY KEY CLUSTERED ([ggz_zorgprestatie_dim_ok] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
+);
+
