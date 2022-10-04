@@ -1,0 +1,989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>BI</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{70dafcc6-8e65-4d1e-8597-da598519afea}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>BI</RootNamespace>
+    <AssemblyName>BI</AssemblyName>
+    <ModelCollation>1033,CS</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Latin1_General_BIN</DefaultCollation>
+    <AnsiNulls>False</AnsiNulls>
+    <QuotedIdentifier>False</QuotedIdentifier>
+    <QueryStoreCaptureMode>All</QueryStoreCaptureMode>
+    <QueryStoreDesiredState>Off</QueryStoreDesiredState>
+    <QueryStoreFlushInterval>900</QueryStoreFlushInterval>
+    <QueryStoreStatsInterval>60</QueryStoreStatsInterval>
+    <QueryStoreMaxPlansPerQuery>200</QueryStoreMaxPlansPerQuery>
+    <QueryStoreStaleQueryThreshold>30</QueryStoreStaleQueryThreshold>
+    <QueryStoreMaxStorageSize>100</QueryStoreMaxStorageSize>
+    <DbScopedConfigLegacyCardinalityEstimation>Off</DbScopedConfigLegacyCardinalityEstimation>
+    <DbScopedConfigMaxDOP>0</DbScopedConfigMaxDOP>
+    <DbScopedConfigParameterSniffing>On</DbScopedConfigParameterSniffing>
+    <DbScopedConfigOptimizerHotfixes>Off</DbScopedConfigOptimizerHotfixes>
+    <DelayedDurability>DISABLED</DelayedDurability>
+    <AutoCreateStatisticsIncremental>False</AutoCreateStatisticsIncremental>
+    <MemoryOptimizedElevateToSnapshot>False</MemoryOptimizedElevateToSnapshot>
+    <Containment>None</Containment>
+    <IsNestedTriggersOn>True</IsNestedTriggersOn>
+    <IsTransformNoiseWordsOn>False</IsTransformNoiseWordsOn>
+    <TwoDigitYearCutoff>2049</TwoDigitYearCutoff>
+    <NonTransactedFileStreamAccess>OFF</NonTransactedFileStreamAccess>
+    <TargetRecoveryTimePeriod>60</TargetRecoveryTimePeriod>
+    <TargetRecoveryTimeUnit>SECONDS</TargetRecoveryTimeUnit>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>CHECKSUM</PageVerify>
+    <ServiceBrokerOption>EnableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <CompatibilityMode>140</CompatibilityMode>
+    <AnsiNullDefault>False</AnsiNullDefault>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>SIMPLE</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <CreateProjectFromDatabaseCompleted>True</CreateProjectFromDatabaseCompleted>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SuppressTSqlWarnings>71502,71562</SuppressTSqlWarnings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="pub\" />
+    <Folder Include="pub\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="ssas_ggz\" />
+    <Folder Include="ssas_ggz\Views\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="pub\Tables\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="pub\Stored Procedures\" />
+    <Folder Include="ssas_pgs\" />
+    <Folder Include="ssas_pgs\Views\" />
+    <Folder Include="ssas_hr\" />
+    <Folder Include="ssas_hr\Views\" />
+    <Folder Include="ssas_hr\Stored Procedures\" />
+    <Folder Include="hr\" />
+    <Folder Include="hr\Stored Procedures\" />
+    <Folder Include="ssas_ba\" />
+    <Folder Include="ssas_ba\Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.amd.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ba.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.bia.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.crisis.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.hr.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.huisv.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ia.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.kiakua.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.km.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.kw.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.lime.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.maximo.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.medewerker.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.onderzoek.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ows.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.pgs.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.projleid.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.public.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.thk.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.topdesk.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ultimo.sql" />
+    <Build Include="Security\amd.sql" />
+    <Build Include="Security\ba.sql" />
+    <Build Include="Security\bia.sql" />
+    <Build Include="Security\crisis.sql" />
+    <Build Include="Security\ggz.sql" />
+    <Build Include="Security\hr.sql" />
+    <Build Include="Security\huisv.sql" />
+    <Build Include="Security\ia.sql" />
+    <Build Include="Security\kiakua.sql" />
+    <Build Include="Security\km.sql" />
+    <Build Include="Security\kw.sql" />
+    <Build Include="Security\lime.sql" />
+    <Build Include="Security\maximo.sql" />
+    <Build Include="Security\medewerker.sql" />
+    <Build Include="Security\onderzoek.sql" />
+    <Build Include="Security\ows.sql" />
+    <Build Include="Security\pgs.sql" />
+    <Build Include="Security\projleid.sql" />
+    <Build Include="Security\pub.sql" />
+    <Build Include="Security\ssas_amd.sql" />
+    <Build Include="Security\ssas_ba.sql" />
+    <Build Include="Security\ssas_bia.sql" />
+    <Build Include="Security\ssas_crisis.sql" />
+    <Build Include="Security\ssas_ggz.sql" />
+    <Build Include="Security\ssas_hr.sql" />
+    <Build Include="Security\ssas_huisv.sql" />
+    <Build Include="Security\ssas_ia.sql" />
+    <Build Include="Security\ssas_kiakua.sql" />
+    <Build Include="Security\ssas_km.sql" />
+    <Build Include="Security\ssas_kw.sql" />
+    <Build Include="Security\ssas_lime.sql" />
+    <Build Include="Security\ssas_maximo.sql" />
+    <Build Include="Security\ssas_medewerker.sql" />
+    <Build Include="Security\ssas_onderzoek.sql" />
+    <Build Include="Security\ssas_ows.sql" />
+    <Build Include="Security\ssas_pgs.sql" />
+    <Build Include="Security\ssas_projleid.sql" />
+    <Build Include="Security\ssas_pub.sql" />
+    <Build Include="Security\ssas_thk.sql" />
+    <Build Include="Security\ssas_topdesk.sql" />
+    <Build Include="Security\ssas_ultimo.sql" />
+    <Build Include="Security\thk.sql" />
+    <Build Include="Security\topdesk.sql" />
+    <Build Include="Security\ultimo.sql" />
+    <Build Include="ssas_ggz\Views\DimPatientGGZ.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzBvcHsc.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactOpnameEnDagopnameVersusVerblijfsdagen.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactOkZittingVersusActiviteit.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzZorglabel.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzRegiebehandelaar.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzBehandelaar.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzVerwijzer.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzVerwijstype.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzTraject.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzDiagnose.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzZorgprestatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzActiviteit.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzAfspraakVersusActiviteit.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzBopz.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzArgusInterventie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimKostenplaatsAanvragend.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\_Meetwaarden.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimKostenplaatsDbl.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDepartment.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimWerknemerGeregistreerdDoor.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimWerknemerGeannuleerdDoor.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumGewijzigd.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGrootboekBron.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGrootboekCategorie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimWerknemer.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumOrderParent.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGrootboekrekening.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumVervallen.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimMaatschappij.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumVerwacht.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimProject.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGrootBoekSleutelCommon.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGrootboekrekeningUmrapCommon.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumGeregistreerd.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGrootboekrekeningCommon.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimKostenplaatsCommon.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimPeriode.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumCommon.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGebruiker.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimTijdEind.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimKostenplaats.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimTijdStart.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGeldstroom.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimPeriodeMaand.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimLeeftijd.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumStart.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumEind.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimWerknemerGeparkeerdDoor.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumOrder.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimPostcode4.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimTijd.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimAlgoritmeKplUitvoerend.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimAlgoritmeKplAanvragend.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimAlgoritme.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimKostenplaatsUitvoerend.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ultimo.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.topdesk.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.thk.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.public.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.projleid.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.pgs.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ows.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.onderzoek.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.medewerker.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.maximo.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.lime.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.kw.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.km.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.kiakua.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ia.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.huisv.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.hr.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ggz.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.crisis.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.bia.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.ba.sql" />
+    <Build Include="Security\UMCN_rol.applicatie.bi-startpunt.amd.sql" />
+    <Build Include="Security\UMCN_GG.BIA.Medewerkers.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Functions\InitCap.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\spGetDBC.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Stored Procedures\GenInitCapsView.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\ultimo.sql" />
+    <Build Include="Security\topdesk.sql" />
+    <Build Include="Security\thk.sql" />
+    <Build Include="Security\ssrs.sql" />
+    <Build Include="Security\ssas_ultimo.sql" />
+    <Build Include="Security\ssas_topdesk.sql" />
+    <Build Include="Security\ssas_thk.sql" />
+    <Build Include="Security\ssas_pub.sql" />
+    <Build Include="Security\ssas_projleid.sql" />
+    <Build Include="Security\ssas_pgs.sql" />
+    <Build Include="Security\ssas_ows.sql" />
+    <Build Include="Security\ssas_onderzoek.sql" />
+    <Build Include="Security\ssas_medewerker.sql" />
+    <Build Include="Security\ssas_maximo.sql" />
+    <Build Include="Security\ssas_lime.sql" />
+    <Build Include="Security\ssas_kw.sql" />
+    <Build Include="Security\ssas_km.sql" />
+    <Build Include="Security\ssas_kiakua.sql" />
+    <Build Include="Security\ssas_ia.sql" />
+    <Build Include="Security\ssas_huisv.sql" />
+    <Build Include="Security\ssas_hr.sql" />
+    <Build Include="Security\ssas_ggz.sql" />
+    <Build Include="Security\ssas_crisis.sql" />
+    <Build Include="Security\ssas_bia.sql" />
+    <Build Include="Security\ssas_ba.sql" />
+    <Build Include="Security\ssas_amd.sql" />
+    <Build Include="Security\pub.sql" />
+    <Build Include="Security\projleid.sql" />
+    <Build Include="Security\pgs.sql" />
+    <Build Include="Security\ows.sql" />
+    <Build Include="Security\onderzoek.sql" />
+    <Build Include="Security\medewerker.sql" />
+    <Build Include="Security\maximo.sql" />
+    <Build Include="Security\lime.sql" />
+    <Build Include="Security\kw.sql" />
+    <Build Include="Security\km.sql" />
+    <Build Include="Security\kiakua.sql" />
+    <Build Include="Security\ia.sql" />
+    <Build Include="Security\huisv.sql" />
+    <Build Include="Security\hr.sql" />
+    <Build Include="Security\ggz.sql" />
+    <Build Include="Security\crisis.sql" />
+    <Build Include="Security\bia.sql" />
+    <Build Include="Security\ba.sql" />
+    <Build Include="Security\amd.sql" />
+    <Build Include="Security\UMCN_Z388165.sql" />
+    <Build Include="ssas_ggz\Views\DimGgzBeroepsCategorie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Tables\rapport_was_wordt.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\f_activiteit_test.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\d_patient_test.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\d_datum_test.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\d_arts_test.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactOpnameEnDagopnameVersusVerblijfsdagenOudEnNieuw.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzMedicatieToedieningVersusActiviteiten.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzAfspraakVersusRtmsActiviteitOud.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzAfspraakVersusRtmsActiviteit.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\FactGgzActiviteitVersusIngeplandeDiensten.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzZorgvraagTypering.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzZorgprestatieToeslagen.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimWeek.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimUur.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimPeilmaand.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimKpi.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimKostenplaatsRef.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimKamer.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimGeslacht.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatumGeldigTot.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\db_executor.sql" />
+    <Build Include="pub\Stored Procedures\GetParamKostenplaatsHierarchie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\testje.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\ssas_oz.sql" />
+    <Build Include="dbo\Tables\renametemp.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\colours.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzRegiebehandelaarHuidige.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ggz\Views\DimGgzDiagnoseHuidige.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Functions\NhrValue.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Functions\LtrValue.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Functions\LtrAis.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\TmDatumImport.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimPatient.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\FactAfspraak.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimAfspraakType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimZorgverlener.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\FactOpnameEnDagopname.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\FactOkZitting.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="pub\Views\DimDatum.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\HulpFreqVerz.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\FactZiekteverzuim.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\FactPersoneelMobiliteit.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\FactPersoneelFormatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\FactPersoneelDoorbelasting.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\FactPersoneelAanstelling.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\FactOLOCursus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\FactGoedkeuringAutorisatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\FactGeneratieReg.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimWerknemerUitgebreid.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimWerknemerPersonalia.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimWerknemerLeidinggevende.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimVerzuimduur.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimTeamCursussenOLO.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimSchaal.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimOrgDbl.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimOrg.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimOLOCursus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimMobiliteitSoort.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimKostenplaatsOLOCursusAutorisatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimKostenplaatsOLOCursus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimKostenplaatsDoorbelasting.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimKostenplaatsAanstelling.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimJarenInDienst.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimFunctieplaats.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimFunctie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimDienstomvang.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimDatumEindeContract.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimDatumAow.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimBeeindigingsReden.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimAutorisatieKostenplaatsOLOCursusAutorisatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimAutorisatieKostenplaatsOLOCursus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimAutorisatieKostenplaats.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimAutorisatieAll.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Views\DimAfdelingCursussenOLO.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_hr\Stored Procedures\spFactGeneratieReg.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="hr\Stored Procedures\spFormatieAfdelingPrompt.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="hr\Stored Procedures\spFormatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ba\Views\DimProjectTijdschrijvenClassificatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ba\Views\DimProjectSubsidiegeverClassificatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ba\Views\DimProjectPrestatieclassificatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_ba\Views\DimProjectCommon.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\FactOpnameLbz.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimZorgactiviteit.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimSpecialismeAgb.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimPatientgroepIcd10.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimLbzContactType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimInstelling.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimIcd10Diagnose.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\DimHerkomst.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\FactAntibiotica.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\FactDureMedicatieHulpOhw.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="ssas_pgs\Views\FactDureMedicatie.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="DM_COMMON">
+      <DefaultValue>DM_COMMON</DefaultValue>
+      <Value>$(SqlCmdVar__46)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_DIM">
+      <DefaultValue>DM_DIM</DefaultValue>
+      <Value>$(SqlCmdVar__50)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_ELEARNING">
+      <DefaultValue>DM_ELEARNING</DefaultValue>
+      <Value>$(SqlCmdVar__48)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_HR">
+      <DefaultValue>DM_HR</DefaultValue>
+      <Value>$(SqlCmdVar__47)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_OWS2020">
+      <DefaultValue>DM_OWS2020</DefaultValue>
+      <Value>$(SqlCmdVar__44)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_ZORG">
+      <DefaultValue>DM_ZORG</DefaultValue>
+      <Value>$(SqlCmdVar__51)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="HRWH">
+      <DefaultValue>HRWH</DefaultValue>
+      <Value>$(SqlCmdVar__49)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="INT_ZORG">
+      <DefaultValue>INT_ZORG</DefaultValue>
+      <Value>$(SqlCmdVar__42)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UMRAP4">
+      <DefaultValue>UMRAP4</DefaultValue>
+      <Value>$(SqlCmdVar__45)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UPLOAD_FILES">
+      <DefaultValue>UPLOAD_FILES</DefaultValue>
+      <Value>$(SqlCmdVar__52)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BI - SQLCOMPARE.scmp" />
+    <None Include="BI.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\INT_ZORG\INT_ZORG.sqlproj">
+      <Name>INT_ZORG</Name>
+      <Project>{23d642ac-289e-4888-b715-63a30bcc209c}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>INT_ZORG</DatabaseSqlCmdVariable>
+    </ProjectReference>
+    <ProjectReference Include="..\DM_HR\DM_HR.sqlproj">
+      <Name>DM_HR</Name>
+      <Project>{7940fc92-ae08-49ac-8365-2d4c097cc291}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>DM_HR</DatabaseSqlCmdVariable>
+    </ProjectReference>
+    <ProjectReference Include="..\DM_ELEARNING\DM_ELEARNING.sqlproj">
+      <Name>DM_ELEARNING</Name>
+      <Project>{51e33474-4d27-4b67-9ab5-e42fa181b568}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>DM_ELEARNING</DatabaseSqlCmdVariable>
+    </ProjectReference>
+    <ProjectReference Include="..\HRWH\HRWH.sqlproj">
+      <Name>HRWH</Name>
+      <Project>{4d0d6c63-e5bb-44b6-82b7-a8197ec97052}</Project>
+      <Private>True</Private>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>HRWH</DatabaseSqlCmdVariable>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="..\DM_OWS2020.dacpac">
+      <HintPath>..\DM_OWS2020.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>DM_OWS2020</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\UMRAP4.dacpac">
+      <HintPath>..\UMRAP4.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>UMRAP4</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\DM_COMMON.dacpac">
+      <HintPath>..\DM_COMMON.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>DM_COMMON</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\DM_DIM.dacpac">
+      <HintPath>..\DM_DIM.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>DM_DIM</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\DM_ZORG.dacpac">
+      <HintPath>..\DM_ZORG.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>DM_ZORG</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="..\UPLOAD_FILES.dacpac">
+      <HintPath>..\UPLOAD_FILES.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>UPLOAD_FILES</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>BI</TargetDatabaseName>
+    <DeployScriptFileName>BI.sql</DeployScriptFileName>
+    <TargetConnectionString>Data Source=UMCRADART01;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False</TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <DropConstraintsNotInSource>False</DropConstraintsNotInSource>
+    <DropDmlTriggersNotInSource>False</DropDmlTriggersNotInSource>
+    <DropExtendedPropertiesNotInSource>False</DropExtendedPropertiesNotInSource>
+    <DropIndexesNotInSource>False</DropIndexesNotInSource>
+    <ExcludeDatabaseRoles>True</ExcludeDatabaseRoles>
+    <ExcludeDatabaseScopedCredentials>True</ExcludeDatabaseScopedCredentials>
+    <ExcludeCredentials>True</ExcludeCredentials>
+    <IgnorePermissions>True</IgnorePermissions>
+    <ExcludeLogins>True</ExcludeLogins>
+    <ExcludeSecurityPolicies>True</ExcludeSecurityPolicies>
+    <ExcludeUsers>True</ExcludeUsers>
+    <ExcludeApplicationRoles>True</ExcludeApplicationRoles>
+    <ScriptDatabaseOptions>False</ScriptDatabaseOptions>
+  </PropertyGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="AD">
+      <Value>AD</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="AD_P01">
+      <Value>AD_P01</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BEHEER">
+      <Value>BEHEER</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_BEVEILIGING_CAL">
+      <Value>DM_BEVEILIGING_CAL</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_COMMON">
+      <Value>DM_COMMON</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_CREDITEUREN">
+      <Value>DM_CREDITEUREN</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_DIM">
+      <Value>DM_DIM</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_DIVERS">
+      <Value>DM_DIVERS</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_ELEARNING">
+      <Value>DM_ELEARNING</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_HR">
+      <Value>DM_HR</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_KIAKUA">
+      <Value>DM_KIAKUA</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_LOGISTIEK">
+      <Value>DM_LOGISTIEK</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_MAXIMO">
+      <Value>DM_MAXIMO</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_OWS2020">
+      <Value>DM_OWS2020</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_PROJECT">
+      <Value>DM_PROJECT</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_SKIDATA">
+      <Value>DM_SKIDATA</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_TOPDESK">
+      <Value>DM_TOPDESK</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_ULTIMO">
+      <Value>DM_ULTIMO</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DM_ZORG">
+      <Value>DM_ZORG</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ETL_PS">
+      <Value>ETL_PS</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="HRWH">
+      <Value>HRWH</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="INT_COMMON">
+      <Value>INT_COMMON</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="INT_PA">
+      <Value>INT_PA</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="INT_ZORG">
+      <Value>INT_ZORG</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="KPI_CONFIG">
+      <Value>KPI_CONFIG</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="OtherServer">
+      <Value>OtherServer</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="POWERBI">
+      <Value>POWERBI</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="POWERBI_ReportServer">
+      <Value>POWERBI_ReportServer</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="RHA_DCSA">
+      <Value>RHA_DCSA</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="tempdb">
+      <Value>tempdb</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UMCRADARP01">
+      <Value>UMCRADARP01</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UMRAP4">
+      <Value>UMRAP4</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="UPLOAD_FILES">
+      <Value>UPLOAD_FILES</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>
