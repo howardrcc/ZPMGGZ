@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[CodelistProfessions] (
-    [Id]                     BIGINT         NOT NULL,
+    [Id]                     BIGINT         IDENTITY (1, 1) NOT NULL,
     [StartDate]              DATETIME2 (7)  NOT NULL,
     [EndDate]                DATETIME2 (7)  NULL,
     [Code]                   NVARCHAR (10)  NOT NULL,
@@ -10,7 +10,15 @@
     [Created]                DATETIME2 (7)  NOT NULL,
     [LastModifiedBy]         NVARCHAR (50)  NULL,
     [LastModified]           DATETIME2 (7)  NULL,
-    [OccupationalTherapy]    BIT            NOT NULL
-)
-WITH (DATA_COMPRESSION = PAGE);
+    [OccupationalTherapy]    BIT            NOT NULL,
+    CONSTRAINT [PK_CodelistProfessions] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
+);
+
+
+
+
+
+
+
+
 

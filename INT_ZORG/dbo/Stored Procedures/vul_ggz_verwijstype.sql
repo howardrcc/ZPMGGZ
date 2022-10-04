@@ -3,6 +3,8 @@ CREATE   PROC [dbo].[vul_ggz_verwijstype]
 /*## 
 datum		wie			wat
 -------------------------------------------------------------------
+2022-07-03  Howard  ODE is leeg (op ACC?)
+                    ADD verwijstypen vanuit ZPM
 2018-10-22	MP		Upd: @vanafjaar 2014
 2015-08-13	MP		voorloop-0 toegevoegd
 2015-07-09  MP		Creatie

@@ -36,6 +36,12 @@ BEGIN
                 ,[ggz_regiebehandelaar_code]
                 ,[ggz_regiebehandelaar_agb]
                 ,[ggz_regiebehandelaar_naam]
+                , beroep_code 
+                ,beroep_oms  
+                ,beroepscategorie_code
+                ,beroepscategorie_oms 
+                ,startdatum_id
+                ,einddatum_id
                 ,creatie_datum
                 ,mutatie_datum
                 ,verwijderd_datum
@@ -47,7 +53,13 @@ BEGIN
                 ,'Onbekend'
                 ,'Onbekend'
                 ,'Onbekend'
- 
+
+                ,'Onbekend'
+                ,'Onbekend'
+                ,'Onbekend'
+                ,'Onbekend'
+                ,-1 
+                ,-1
                 ,getdate()
                 ,getdate()
                 ,NULL
@@ -69,6 +81,12 @@ insert into tempdb..DM_DIM_d_ggz_regiebehandelaar(
                 ,[ggz_regiebehandelaar_code]
                 ,[ggz_regiebehandelaar_agb]
                 ,[ggz_regiebehandelaar_naam]
+                ,beroep_code 
+                ,beroep_oms  
+                ,beroepscategorie_code
+                ,beroepscategorie_oms 
+                ,startdatum_id
+                ,einddatum_id
   
 )
 
@@ -78,6 +96,12 @@ insert into tempdb..DM_DIM_d_ggz_regiebehandelaar(
         ,[ggz_regiebehandelaar_code]
         ,[ggz_regiebehandelaar_agb]
         ,[ggz_regiebehandelaar_naam]
+        , beroep_code 
+        ,beroep_oms  
+        ,beroepscategorie_code
+        ,beroepscategorie_oms 
+        ,startdatum_id
+        ,einddatum_id
     from d_ggz_regiebehandelaar
     where ggz_regiebehandelaar_id = -1
 
@@ -89,8 +113,19 @@ UNION ALL
         ,[ggz_regiebehandelaar_code]
         ,[ggz_regiebehandelaar_agb]
         ,[ggz_regiebehandelaar_naam]
+        , ISNULL(beroep_code , 'Onbekend')
+        , ISNULL(beroep_oms  , 'Onbekend')
+        , ISNULL(beroepscategorie_code, 'Onbekend')
+        , ISNULL(beroepscategorie_oms , 'Onbekend')
+        ,isnull(sd.datum_id,19000101 )as startdatum_id
+        ,ISNULL(ed.datum_id,99991231) as einddatum_id
     --select *
-    from INT_ZORG..ggz_regiebehandelaar 
+        
+    from INT_ZORG..ggz_regiebehandelaar r
+    left join DM_DIM..d_datum sd 
+        on cast(format(r.startdatum,'yyyyMMdd') as int)         = sd.datum_id
+    left join DM_DIM..d_datum ed 
+        on cast(format(r.einddatum,'yyyyMMdd') as int)         =  ed.datum_id
 
 
 	 

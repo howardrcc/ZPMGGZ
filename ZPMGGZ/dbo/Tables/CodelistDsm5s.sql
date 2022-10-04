@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[CodelistDsm5s] (
-    [Id]                 BIGINT         NOT NULL,
+    [Id]                 BIGINT         IDENTITY (1, 1) NOT NULL,
     [StartDate]          DATETIME2 (7)  NOT NULL,
     [EndDate]            DATETIME2 (7)  NULL,
     [DiagnosisCode]      NVARCHAR (30)  NOT NULL,
@@ -15,7 +15,15 @@
     [Created]            DATETIME2 (7)  NOT NULL,
     [LastModifiedBy]     NVARCHAR (50)  NULL,
     [LastModified]       DATETIME2 (7)  NULL,
-    [SnomedCode]         NVARCHAR (20)  NOT NULL
-)
-WITH (DATA_COMPRESSION = PAGE);
+    [SnomedCode]         NVARCHAR (20)  NOT NULL,
+    CONSTRAINT [PK_CodelistDsm5s] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
+);
+
+
+
+
+
+
+
+
 

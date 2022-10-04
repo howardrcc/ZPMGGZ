@@ -75,7 +75,10 @@
     <Build Include="dbo\Tables\ggz_beroepscategorie.sql" />
     <Build Include="dbo\Tables\ggz_afspraak.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_zorgprestatie_dim.sql" />
-    <Build Include="dbo\Stored Procedures\vul_ggz_zorgprestatie.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_zorgprestatie.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
     <Build Include="dbo\Stored Procedures\vul_ggz_zorglabel.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_verwijstype.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_traject.sql" />

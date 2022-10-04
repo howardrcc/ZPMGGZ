@@ -6,6 +6,8 @@
     [creatie_datum]             DATETIME       NOT NULL,
     [mutatie_datum]             DATETIME       NOT NULL,
     [verwijderd_datum]          DATETIME       NULL,
-    CONSTRAINT [PK_ggz_ggz_beroepscategorie_id] PRIMARY KEY CLUSTERED ([ggz_beroepscategorie_ok] ASC) WITH (FILLFACTOR = 90)
+    CONSTRAINT [PK_ggz_ggz_beroepscategorie_id] PRIMARY KEY CLUSTERED ([ggz_beroepscategorie_ok] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
 );
+
+
 

@@ -64,4 +64,7 @@
     <Build Include="dbo\Tables\f_ggz_zorgprestatie.sql" />
     <Build Include="dbo\Stored Procedures\vul_f_ggz_zorgprestatie.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DM_ZORG.scmp" />
+  </ItemGroup>
 </Project>

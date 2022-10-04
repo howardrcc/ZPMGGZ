@@ -41,6 +41,7 @@ CREATE TABLE [dbo].[ggz_regiebehandelaar](
 			@db  = 'INT_ZORG',
 			@tab = 'ggz_regiebehandelaar',
 			@pk1 = 'ggz_regiebehandelaar_ok',
+            @pk2 = 'startdatum',
             @ts = 'ggz_regiebehandelaar_id'
 
 --drop table tempdb..INT_ZORG_ggz_regiebehandelaar
@@ -53,24 +54,49 @@ CREATE TABLE [dbo].[ggz_regiebehandelaar](
             ,ggz_regiebehandelaar_code
             ,ggz_regiebehandelaar_agb
             ,ggz_regiebehandelaar_naam
+            ,startdatum
+            ,einddatum
+            ,beroep_code
+            ,beroep_oms
+            ,beroepscategorie_code
+            ,beroepscategorie_oms
             --,zorgverlener_jn
  
         )
 	  
 
     select 
-        Id
-        ,[HealthcareProviderCode]
-        ,HealthcareProviderAgbCode
-        ,FullName
+        u.Id
+        ,ISNULL(UPPER(u.[HealthcareProviderCode]),'Onbekend')
+        ,NULL --u.HealthcareProviderAgbCode
+        ,FullName       
+        ,ISNULL(a.StartDate,'1900-01-01')                as startdatum
+        ,ISNULL(a.EndDate,'9999-12-31')                  as einddatum
+        ,p.Code                                         as beroep_code
+        ,p.Name                                         as beroep_oms
+        ,cp.Code                                        as beroepscategorie_code
+        ,cp.Name                                        as beroepscategorie_oms
+        
         /*,CASE WHEN IsHealthcareProvider = 0 THEN '0'
                 WHEN IsHealthcareProvider = 1 THEN '1'
             END as zorgverlener_jn
       */
-    from ZPMGGZ..OrganizationUsers
+    from ZPMGGZ..OrganizationUsers u
+    left join  ZPMGGZ..OrganizationUserProfessions a
+        on a.OrganizationUserId = u.Id 
+        and a.Removed = 0
+    left join ZPMGGZ..CodelistProfessions p
+        on a.ProfessionId = p.Id
+        and p.Removed = 0
+    left join ZPMGGZ..CodelistProfessionCategories cp         
+        on cp.Code = p.ProfessionCategoryCode --voor oms
+        and cp.Removed = 0
     where 1=1
-        and Removed = 0 --alleen zorgverleners?
-        and IsHealthcareProvider = 1
+        and u.Removed = 0 --alleen zorgverleners?
+        --and IsHealthcareProvider = 1
+
+
+        
 
   
 

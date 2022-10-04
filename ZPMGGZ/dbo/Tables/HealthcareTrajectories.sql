@@ -10,16 +10,67 @@
     [Created]                    DATETIME2 (7)    NOT NULL,
     [LastModifiedBy]             NVARCHAR (50)    NULL,
     [LastModified]               DATETIME2 (7)    NULL,
-    [OrganizationId]             BIGINT           NOT NULL,
-    [Privacy]                    BIT              NOT NULL,
+    [OrganizationId]             BIGINT           DEFAULT (CONVERT([bigint],(0))) NOT NULL,
+    [Privacy]                    BIT              DEFAULT (CONVERT([bit],(0))) NOT NULL,
     [ExternalInstitutionId]      BIGINT           NULL,
-    [FinanceType]                TINYINT          NOT NULL,
+    [FinanceType]                TINYINT          DEFAULT (CONVERT([tinyint],(0))) NOT NULL,
     [CodelistGbGgzProfileId]     BIGINT           NULL,
     [CodelistReferrerTypeId]     BIGINT           NULL,
-    [ReferrerAgbCode]            VARCHAR (12)     NULL,
+    [ReferrerAgbCode]            INT              NULL,
     [ClientIdOld]                BIGINT           NULL,
-    [TariffLevel]                INT              NULL,
-    [ExternalTrajectoryId]       BIGINT           NULL
-)
-WITH (DATA_COMPRESSION = PAGE);
+    [TariffLevel]                TINYINT          DEFAULT (CONVERT([tinyint],(0))) NOT NULL,
+    [ExternalTrajectoryId]       BIGINT           NULL,
+    [MunicipalityId]             BIGINT           NULL,
+    CONSTRAINT [PK_HealthcareTrajectories] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+GO
+
+
+
+GO
+
+
+
+GO
+
+
+
+GO
+
+
+
+GO
+
+
+
+GO
+
+
+
+GO
+
+
+
+GO
+
+
+
+GO
+
+
+
+GO
+
 

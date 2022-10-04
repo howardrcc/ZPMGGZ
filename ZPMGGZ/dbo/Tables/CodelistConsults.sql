@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[CodelistConsults] (
-    [Id]                     BIGINT        NOT NULL,
+    [Id]                     BIGINT        IDENTITY (1, 1) NOT NULL,
     [StartDate]              DATETIME2 (7) NOT NULL,
     [EndDate]                DATETIME2 (7) NULL,
     [ActivityCode]           NVARCHAR (10) NOT NULL,
@@ -13,7 +13,15 @@
     [LastModifiedBy]         NVARCHAR (50) NULL,
     [LastModified]           DATETIME2 (7) NULL,
     [FinanceStream]          TINYINT       NOT NULL,
-    [TariffLevel]            TINYINT       NULL
-)
-WITH (DATA_COMPRESSION = PAGE);
+    [TariffLevel]            TINYINT       NULL,
+    CONSTRAINT [PK_CodelistConsults] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
+);
+
+
+
+
+
+
+
+
 

@@ -1,6 +1,6 @@
 ﻿ 
 --select * from d_ggz_traject
-
+ 
 CREATE   proc [dbo].[vul_d_ggz_traject]
 as
 /*## 
@@ -36,34 +36,37 @@ begin
             ,ggz_traject_ok
             ,ggz_dbc_id_oud
             ,patient_id
-            ,ggz_diagnose_zpm_id
-            ,ggz_regiebehandelaar_id
+ 
             ,ggz_zorglabel_id
             ,ggz_verwijstype_id
+            
             ,startdatum_id
             ,einddatum_id
             ,registratiedatum_id
-            
             ,agb_verwijzer
+
+            ,agb_verwijzer_id
             ,tariefniveau
                 ,creatie_datum
                 ,mutatie_datum
                 ,verwijderd_datum)
         select 
-                -1  
+                 -1  
                 ,-1 
                 ,-1
                 ,-1
+ 
                 ,-1 
                 ,-1 
+
                 ,-1 
                 ,-1 
-                ,-1 
-                ,-1 
-                
                 ,-1
                 ,'Onbekend'
-                ,NULL
+
+                ,-1
+                ,-1
+
                 ,getdate()
                 ,getdate()
                 ,NULL
@@ -84,8 +87,7 @@ begin
             ,ggz_traject_ok
             ,ggz_dbc_id_oud
             ,patient_id
-            ,ggz_diagnose_zpm_id
-             ,ggz_regiebehandelaar_id
+ 
             ,ggz_zorglabel_id
             ,ggz_verwijstype_id
             ,startdatum_id
@@ -93,6 +95,7 @@ begin
             ,registratiedatum_id
 
             ,agb_verwijzer
+            ,agb_verwijzer_id
             ,tariefniveau
             )
     select
@@ -100,14 +103,14 @@ begin
             ,ggz_traject_ok
             ,ggz_dbc_id_oud
             ,patient_id
-            ,ggz_diagnose_zpm_id
-            ,ggz_regiebehandelaar_id
+     
             ,ggz_zorglabel_id
             ,ggz_verwijstype_id
             ,startdatum_id
             ,einddatum_id
             ,registratiedatum_id
             ,agb_verwijzer
+            ,agb_verwijzer_id
             ,tariefniveau
     from    d_ggz_traject
     where    ggz_traject_id = -1
@@ -118,18 +121,19 @@ begin
       
         ggz_traject_id
         ,t.ggz_traject_ok
-        ,t.ggz_dbc_id_oud
+        ,isnull(t.ggz_dbc_id_oud,-1) 
         
         ,isnull(p.patient_id,-1)
-        ,isnull(t.ggz_diagnose_zpm_id,-1) 
-        ,isnull(t.ggz_regiebehandelaar_id,-1) 
+ 
         ,isnull(t.ggz_zorglabel_id,-1) 
         ,isnull(t.ggz_verwijstype_id,-1)    as ggz_verwijstype_id
         ,isnull(dd.datum_id,-1)             as startdatum_id
         ,isnull(de.datum_id,-1)             as einddatum_id
         ,isnull(dr.datum_id,-1)             as registratiedatum_id
 
-        ,agb_verwijzer
+        ,isnull(t.agb_verwijzer,'Onbekend')
+        ,isnull(t.agb_verwijzer_id,-1)         as agb_verwijzer_id
+        
         ,tariefniveau
         --select * 
     from	INT_ZORG..ggz_traject t 
