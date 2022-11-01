@@ -5,7 +5,13 @@ CREATE     proc [dbo].[vul_ggz_zorgprestatie] AS
  
 
 datum		wie		wat
-------------------------------------------------------------------- 
+-------------------------------------------------------------------
+2022-11-01  Howard  ADD: factuur_foutcode, factuur_statuscode ,factuur_methodecode
+2022-10-26  Howard  Diagnose join: op cast as date ipv datetime. 
+2022-10-25  Howard  Verzekeraar join op met ISNULL(c.consultdatetime,getdate()) isnull en getdate toegevoegd
+2022-10-25  Howard  correctie voor GC's nu op 'dag' ipv datetime
+2022-10-18  Howard  Task 1833: Groepsconsulten directe tijd
+2022-10-05  Howard  Outer Apply op HealhInsurances vanwege dupk 
 2022-10-04	EgBr	Een OUTER APPLY op ZPMGGZ..HealthcareTrajectoryOrganizationUsers vanwege dup key problemen die door overlappende periodes worden veroorzaakt.
 2022-09-23  Howard  rbh verwijderd_datum is null
 2022-09-08  Howard  toeslagen op aparte regels.
@@ -104,7 +110,9 @@ begin
             ,traject_agb_verwijzer_id
             ,traject_ggz_verwijstype_id
             ,traject_tariefniveau
-            
+            ,[factuur_foutcode]
+            ,[factuur_statuscode]
+            ,[factuur_methodecode]
  
         )
     SELECT  
@@ -150,7 +158,7 @@ begin
         
         
         ,CASE  WHEN zpd.zorgprestatiegroep_code = 'GC'
-               THEN  ISNULL(cast(gcr.DurationInMinutes  as numeric(7,3)) / cast(zpd.groeps_grootte as numeric(7,3)),0)
+               THEN  cast(gcr.DurationInMinutes  as numeric(7,3)) / cast(zpd.groeps_grootte as numeric(7,3))
                ELSE 0
             END as directe_tijd_groepsconsulten
              
@@ -177,7 +185,10 @@ begin
         ,agb.agb_verwijzer_id            as traject_agb_verwijzer_id
         ,vt.ggz_verwijstype_id           as traject_ggz_verwijstype_id
         ,ht.[TariffLevel]                as traject_tariefniveau
-    --select * 
+        ,c.[NotBillableReason]          as [factuur_foutcode]
+        ,c.[InvoiceState]               as [factuur_statuscode]
+        ,c.[BillingMethod]              as [factuur_methodecode]
+    --select ht.*
    from ZPMGGZ.dbo.HealthcareTrajectories ht 
    
     left join ZPMGGZ.dbo.HealthcareConsults c
@@ -188,10 +199,14 @@ begin
         on c.ClientgroupRegistrationId=gcr.Id
         and gcr.Removed = 0
 --select * from ZPMGGZ..HealthInsurances v where HealthInsurerId IN(12,24) order by 3 --208, 1459
-    left join ZPMGGZ..HealthInsurances v 
-        on v.ClientId = ht.ClientId
-        and c.ConsultDateTime between v.StartDate and ISNULL(v.EndDate,'9999-12-31')
-        and v.Removed= 0
+    --dup key in healhinsurances
+    outer apply (
+        select top(1) * from ZPMGGZ..HealthInsurances v 
+            where v.ClientId = ht.ClientId
+            and ISNULL(c.ConsultDateTime, getdate()) between v.StartDate and ISNULL(v.EndDate,'9999-12-31')
+            and v.Removed= 0
+        order by ISNULL(v.LastModified, v.Created) desc
+    ) v 
 
     left join ZPMGGZ..HealthInsurerHealthInsurerCluster cv 
         on cv.HealthInsurersId = v.HealthInsurerId
@@ -229,7 +244,7 @@ begin
     --left join ZPMGGZ..HealthcareConsultSurcharges ts         on ts.HealthcareConsultId = c.Id        and ts.Removed = 0
     --left join ggz_zorgprestatie_dim tsd         on ts.CodelistActivityId = tsd.ggz_zorgprestatie_dim_ok
 
-
+--select * from patient
     left join patient p 
         on p.patient_nr = cl.ClientNumber
 
@@ -260,25 +275,10 @@ begin
     left join EXTERN..ggz_normtijden nt 
         on nt.Prestatie_code = zpd.zorgprestatie_code
         and zpd.zorgprestatie_code IS NOT NULL
-    
-    outer apply (
-        select top 1
-            patient_id
-            , afspraak_nr_epic
-            , min(start_afspraak_datumtijd) as start_afspraak_datumtijd
-            , max(eind_afspraak_datumtijd) as eind_afspraak_datumtijd
-            , sum(af.duur_minuten_realisatie) as duur_minuten_realisatie
-        from ggz_afspraak af 
-        where 1=1
-            and af.patient_id = p.patient_nr
-            --and c.ConsultDateTime between af.start_afspraak_datumtijd and dateadd(SECOND, -1, eind_afspraak_datumtijd)
-            and c.ConsultDateTime = af.start_afspraak_datumtijd
-            and af.patient_id <> -1 
-        group by 
-              patient_id
-            , afspraak_nr_epic
-        order by afspraak_nr_epic desc 
-    ) af 
+    left join ggz_afspraak af 
+        on af.ggz_afspraak_ok = c.AppointmentId
+        and af.patient_id = p.patient_nr
+
 -- getdate niet goed. regiebehandelaren kunnen gestopt zijn voor gerdate() maar wel actief zijn geweest aan een traject in een eerdere periode dan getdate(). 
 -- dergelijke trajecten via een cross apply met iets van laatst actieve behandelaar
     --left join ZPMGGZ..HealthcareTrajectoryOrganizationUsers rb --regiebehandelaar
@@ -302,13 +302,13 @@ begin
     left join ZPMGGZ..HealthcareTrajectoryDiagnoses dia
         on dia.HealthcareTrajectoryId = c.HealthcareTrajectoryId
         and dia.Removed = 0 
-        and (ConsultDateTime >= dia.StartDate   and c.ConsultDateTime < ISNULL(dia.EndDate,'9999-12-31'))
+        and (ConsultDateTime >= dia.StartDate   and cast(c.ConsultDateTime as date) <= ISNULL(dia.EndDate,'9999-12-31'))
 		and not exists(
 		    select top 1 1 from ZPMGGZ..HealthcareTrajectoryDiagnoses dia2 
 		    where 1=1
 		        and dia2.HealthcareTrajectoryId = c.HealthcareTrajectoryId
 		        and dia2.Removed = 0
-		        and (ConsultDateTime >= dia2.StartDate   and c.ConsultDateTime < ISNULL(dia2.EndDate,'9999-12-31'))
+		        and (ConsultDateTime >= dia2.StartDate   and cast(c.ConsultDateTime as date) <= ISNULL(dia.EndDate,'9999-12-31'))
 		        and dia2.StartDate > dia.StartDate
             order by dia2.DiagnosisId asc
 		)
@@ -318,7 +318,8 @@ begin
         
     where 1=1
         and ht.Removed = 0
-       
+        --and ht.Id = 14
+        --and c.Id = 9157
         
 
     PRINT convert(varchar(20), getdate(), 120) + ' '+ cast(@@ROWCOUNT as varchar) + ' zorgprestaties inserted'
@@ -518,7 +519,6 @@ join ggz_zorgprestatie_dim b
 where 1=1
 
      
-
 -- update voor opeenvolgende sessies die geregistreerd staan als één groepsconsult, nu niet meer via Epic
     update a 
     set a.directe_tijd_groepsconsulten = a.directe_tijd_groepsconsulten /  b.aantal_consulten_geboekt_ZPM_voor_een_enkel_epic_afspraak
@@ -531,9 +531,9 @@ where 1=1
 
         join (
                 SELECT  
-                    uitvoer_datumtijd
+                    cast(uitvoer_datumtijd as date) as uitvoer_datumtijd
                     ,uitvoerder_zorgverlener_id
-                   
+                    ,a.ggz_zorgprestatie_dim_id
                     ,patient_nr
                     ,count(*) as aantal_consulten_geboekt_ZPM_voor_een_enkel_epic_afspraak --count(distinct ggz_zorgprestatie_ok ) as aantal_consulten_geboekt_ZPM_voor_een_enkel_epic_afspraak
                     
@@ -542,16 +542,18 @@ where 1=1
                     on a.ggz_zorgprestatie_dim_id = b.ggz_zorgprestatie_dim_id
                 where 1=1
                     and b.zorgprestatiegroep_code= 'GC'
+                    and a.directe_tijd_groepsconsulten IS NOT NULL
                     
                 group by 
-                    uitvoer_datumtijd
+                    cast(uitvoer_datumtijd as date)
                     ,uitvoerder_zorgverlener_id
-                 
+                    ,a.ggz_zorgprestatie_dim_id
                     ,patient_nr
                 ) b 
             on  a.patient_nr = b.patient_nr
-            and a.uitvoer_datumtijd = b.uitvoer_datumtijd
+            and cast(a.uitvoer_datumtijd as date) = cast(b.uitvoer_datumtijd as date)
             and a.uitvoerder_zorgverlener_id = b.uitvoerder_zorgverlener_id
+            and a.ggz_zorgprestatie_dim_id = b.ggz_zorgprestatie_dim_id
 
     where 1=1
                 

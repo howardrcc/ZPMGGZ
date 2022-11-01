@@ -6,14 +6,14 @@
     <Name>INT_ZORG</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{1a1b5867-558a-4b03-8129-437c9161fcd1}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <ProjectGuid>{23d642ac-289e-4888-b715-63a30bcc209c}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>INT_ZORG</RootNamespace>
     <AssemblyName>INT_ZORG</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CS</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -22,6 +22,17 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <DefaultCollation>Latin1_General_BIN</DefaultCollation>
+    <Recovery>SIMPLE</Recovery>
+    <PageVerify>CHECKSUM</PageVerify>
+    <TargetRecoveryTimePeriod>60</TargetRecoveryTimePeriod>
+    <AnsiNulls>False</AnsiNulls>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <QuotedIdentifier>False</QuotedIdentifier>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -45,6 +56,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <SuppressTSqlWarnings>71502,71562</SuppressTSqlWarnings>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -57,35 +69,138 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
+    <Folder Include="Security\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
     <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="INT_ZORG.scmp" />
+    <None Include="INT_ZORG_SqlSchemaCompare.scmp" />
+    <None Include="INT_ZORG.publish.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\140\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\140\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="..\EXTERN.dacpac">
+      <HintPath>..\EXTERN.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>EXTERN</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="..\EPIC_STAGE.dacpac">
+      <HintPath>..\EPIC_STAGE.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>EPIC_STAGE</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\ggz_zorgtype.sql" />
+    <Build Include="dbo\Tables\ggz_zorgtraject.sql" />
     <Build Include="dbo\Tables\ggz_zorgprestatie_dim.sql" />
     <Build Include="dbo\Tables\ggz_zorgprestatie.sql" />
     <Build Include="dbo\Tables\ggz_zorglabel.sql" />
+    <Build Include="dbo\Tables\ggz_zorgdomein.sql" />
+    <Build Include="dbo\Tables\ggz_verzekeraar.sql" />
     <Build Include="dbo\Tables\ggz_verwijstype.sql" />
+    <Build Include="dbo\Tables\ggz_validatiefout.sql" />
+    <Build Include="dbo\Tables\ggz_uitvraag.sql" />
     <Build Include="dbo\Tables\ggz_traject.sql" />
+    <Build Include="dbo\Tables\ggz_tariefperproduct.sql" />
+    <Build Include="dbo\Tables\ggz_tarief_simulatie.sql" />
+    <Build Include="dbo\Tables\ggz_tarief_2020.sql" />
+    <Build Include="dbo\Tables\ggz_tarief.sql" />
     <Build Include="dbo\Tables\ggz_regiebehandelaar.sql" />
+    <Build Include="dbo\Tables\ggz_productgroep.sql" />
+    <Build Include="dbo\Tables\ggz_prestatiecode.sql" />
     <Build Include="dbo\Tables\ggz_opname.sql" />
+    <Build Include="dbo\Tables\ggz_ohw_uurtarief.sql" />
+    <Build Include="dbo\Tables\ggz_ntf_ohw.sql" />
+    <Build Include="dbo\Tables\ggz_factuur.sql" />
+    <Build Include="dbo\Tables\ggz_facturatiebatch_dbc.sql" />
+    <Build Include="dbo\Tables\ggz_facturatiebatch.sql" />
+    <Build Include="dbo\Tables\ggz_facturatie.sql" />
+    <Build Include="dbo\Tables\ggz_fac_ntf_ohw.sql" />
+    <Build Include="dbo\Tables\ggz_diagnosed5.sql" />
+    <Build Include="dbo\Tables\ggz_diagnoseas5.sql" />
+    <Build Include="dbo\Tables\ggz_diagnoseas4.sql" />
+    <Build Include="dbo\Tables\ggz_diagnoseas3.sql" />
+    <Build Include="dbo\Tables\ggz_diagnoseas2.sql" />
+    <Build Include="dbo\Tables\ggz_diagnoseas1.sql" />
     <Build Include="dbo\Tables\ggz_diagnose_zpm.sql" />
+    <Build Include="dbo\Tables\ggz_diagnose.sql" />
+    <Build Include="dbo\Tables\ggz_declaratiecode.sql" />
+    <Build Include="dbo\Tables\ggz_dbctarief.sql" />
+    <Build Include="dbo\Tables\ggz_dbc_ind.sql" />
+    <Build Include="dbo\Tables\ggz_dbc.sql" />
+    <Build Include="dbo\Tables\ggz_circuit.sql" />
+    <Build Include="dbo\Tables\ggz_bvc_hsc.sql" />
+    <Build Include="dbo\Tables\ggz_bopz.sql" />
     <Build Include="dbo\Tables\ggz_beroepscategorie.sql" />
+    <Build Include="dbo\Tables\ggz_behandelaar.sql" />
+    <Build Include="dbo\Tables\ggz_argus_interventie.sql" />
+    <Build Include="dbo\Tables\ggz_argus.sql" />
+    <Build Include="dbo\Tables\ggz_afspraken_zv.sql" />
     <Build Include="dbo\Tables\ggz_afspraak.sql" />
+    <Build Include="dbo\Tables\ggz_afsluitreden.sql" />
+    <Build Include="dbo\Tables\ggz_activiteittarief.sql" />
+    <Build Include="dbo\Tables\ggz_activiteit_dim.sql" />
+    <Build Include="dbo\Tables\ggz_activiteit.sql" />
+    <Build Include="dbo\Views\vw_nza_ggz_tarief_voorlopig.sql" />
+    <Build Include="dbo\Views\vw_nza_ggz_consult.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_zorgtype.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_zorgtraject.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_zorgprestatie_dim.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_zorgprestatie.sql">
       <AnsiNulls>Off</AnsiNulls>
       <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\vul_ggz_zorglabel.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_zorgdomein.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_verzekeraar.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_verwijstype.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_uitvraag.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_traject.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_tariefperproduct.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_tarief_simulatie.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_regiebehandelaar.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_productgroep.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_prestatiecode.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_opname.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_ntf_ohw.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_factuur.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_facturatiebatch.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_facturatie.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_fac_ntf_ohw.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_diagnosed5.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_diagnoseas5.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_diagnoseas4.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_diagnoseas3.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_diagnoseas2.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_diagnoseas1.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_diagnose_zpm.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_diagnose.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_declaratiecode.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_dbctarief.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_dbc_ind.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_dbc.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_circuit.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_bvc_hsc.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_bopz.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_beroepscategorie.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_behandelaar.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_argus_interventie.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_argus.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_afspraken_zv.sql" />
     <Build Include="dbo\Stored Procedures\vul_ggz_afspraak.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_afsluitreden.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_activiteittarief.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_activiteit_dim.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_activiteit.sql" />
+    <Build Include="dbo\Stored Procedures\vul_ggz_fac_ntf_ohw_zpm.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
 </Project>

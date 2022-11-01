@@ -6,6 +6,7 @@ as
 Historie
 Datum       wie		    wat
 -------------------------------------------------------------------
+2022-10-25  Howard      and ISNULL(a.uitvoer_datumtijd,getdate() between v.startdatum and v.einddatum verzekeraar
 2022-10-04  Howard      delete alleen wanneer brontabel gevuld is
 2022-09-27  Howard      diverse factuur status/codes toegevoegd. (omschrijvingen zijn er nog niet)
 2022-09-09  Howard      toeslag_id toegevoegd aan sleutel
@@ -198,7 +199,7 @@ END
         on z.ggz_zorgprestatie_ok = a.ggz_zorgprestatie_dim_id
     left join DM_DIM..d_verzekeraar v 
         on v.verz_code = cast(a.verzekeraar_id as varchar)
-        and a.uitvoer_datumtijd between v.startdatum and v.einddatum
+        and ISNULL(a.uitvoer_datumtijd,getdate()) between v.startdatum and v.einddatum
         and v.verwijderd_datum is null
     left join DM_DIM..d_tijd dt 
         on dt.tijd = left(replace(cast(convert(time(0),a.uitvoer_datumtijd) as varchar),':',''),4) 

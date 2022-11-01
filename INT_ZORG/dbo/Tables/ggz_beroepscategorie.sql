@@ -9,5 +9,3 @@
     CONSTRAINT [PK_ggz_ggz_beroepscategorie_id] PRIMARY KEY CLUSTERED ([ggz_beroepscategorie_ok] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
 );
 
-
-

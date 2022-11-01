@@ -19,5 +19,3 @@
     CONSTRAINT [PK_ggz_traject_id] PRIMARY KEY CLUSTERED ([ggz_traject_ok] ASC) WITH (FILLFACTOR = 90, DATA_COMPRESSION = PAGE)
 );
 
-
-

@@ -7,7 +7,7 @@ CREATE     proc [dbo].[vul_ggz_afspraak] AS
 /*## 
 datum		wie		wat
 ------------------------------------------------------------------- 
- 
+2022-10-18  Howard  afspraak_code en label toegevoegd
 2022-02-07  Howard  Creatie
 -------------------------------------------------------------------
 ##*/
@@ -45,6 +45,8 @@ begin
             ,start_afspraak_datumtijd
             ,eind_afspraak_datumtijd
             ,afspraak_nr_epic --epic
+            ,afspraak_code
+            ,afspraak_oms
         
         )
     --select * from ZPMGGZ..Appointments
@@ -57,6 +59,8 @@ begin
         ,cast(b.StartDateTime as datetime)        as start_afspraak_datumtijd --splitten? later pas in DM-laag
         ,cast(b.EndDateTime as datetime)          as eind_afspraak_datumtijd
         ,b.AppointmentNumber    as afspraak_nr_epic --epic
+        ,ac.Code                as afspraak_code
+        ,ac.Name                as afspraak_oms
     --into ggz_afspraak
     from ZPMGGZ..AppointmentClients a
     left join ZPMGGZ..Appointments b 
@@ -64,6 +68,10 @@ begin
         and b.Removed = 0
     left join ZPMGGZ..Clients c 
         on c.Id = a.ClientId
+        and c.Removed = 0
+    left join ZPMGGZ..AppointmentCodes ac 
+        on ac.Id = b.AppointmentCodeId
+        and ac.Removed = 0
         --AppointmentCodes evt voor videoconsulten vs familiebijeenkomst vs...
     where 1=1
         and a.Removed = 0

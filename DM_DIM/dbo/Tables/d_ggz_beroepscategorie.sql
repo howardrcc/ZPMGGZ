@@ -6,5 +6,6 @@
     [creatie_datum]             DATETIME      NOT NULL,
     [mutatie_datum]             DATETIME      NOT NULL,
     [verwijderd_datum]          DATETIME      NULL
-);
+)
+WITH (DATA_COMPRESSION = PAGE);
 

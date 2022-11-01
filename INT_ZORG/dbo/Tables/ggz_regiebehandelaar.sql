@@ -16,5 +16,3 @@
 )
 WITH (DATA_COMPRESSION = PAGE);
 
-
-
